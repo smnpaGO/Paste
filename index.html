@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Web HTML Tester</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        textarea { width: 100%; height: 70vh; font-family: monospace; }
+        button { padding: 10px 20px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h2>HTML Full Page Tester</h2>
+    <textarea id="code"><h1>Hello World</h1></textarea>
+    <br>
+    <button onclick="runCode()">Run</button>
+    <button onclick="resetPage()">Reset</button>
+
+    <script>
+        let initialHTML = document.body.innerHTML; // Simpan tampilan awal
+
+        function runCode() {
+            let code = document.getElementById("code").value;
+            document.open();
+            document.write(code);
+            document.close();
+        }
+
+        function resetPage() {
+            document.open();
+            document.write(initialHTML);
+            document.close();
+            location.reload(); // Supaya script & event kembali normal
+        }
+    </script>
+</body>
+</html>
